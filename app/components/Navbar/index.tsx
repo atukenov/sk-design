@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -29,14 +29,23 @@ const NavLinks = [
 
 const Navbar = () => {
   const pathname = usePathname();
+
   const router = useRouter();
-  const isMobile = window.innerWidth < 640;
 
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
 
   const [current, setCurrent] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const getWindowSize = () => {
+    setIsMobile(window.innerWidth < 640);
+  };
+
+  useEffect(() => {
+    getWindowSize();
+  }, []);
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
