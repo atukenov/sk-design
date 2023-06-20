@@ -5,7 +5,11 @@ interface Props {
 }
 
 const Container: FC<Props> = ({ children }) => {
-  return <div className="mx-2 mt-4 md:mx-24 md:mt-14">{children}</div>;
+  return (
+    <div className="px-6 pt-4 sm:px-12 md:px-24 md:pt-14 h-full">
+      {children}
+    </div>
+  );
 };
 
 export default Container;

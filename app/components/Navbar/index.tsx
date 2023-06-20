@@ -71,7 +71,7 @@ const Navbar = () => {
     <>
       {isMobile ? (
         <div
-          className="flex pb-2 mb-4 border-b-[1px] border-b-[#2B2C30] justify-evenly"
+          className="flex pb-2 border-b-[1px] border-b-[#2B2C30] justify-evenly"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
@@ -81,7 +81,7 @@ const Navbar = () => {
           <div>{current !== 3 && ">"}</div>
         </div>
       ) : (
-        <div className="flex gap-5 pb-2 mb-4 border-b-[1px] border-b-[#2B2C30]">
+        <div className="flex gap-5 pb-2 border-b-[1px] border-b-[#2B2C30]">
           {NavLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
