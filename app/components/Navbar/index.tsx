@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useWindowSize } from "@/utils/useWindowSize";
 
 const NavLinks = [
   {
     href: "/",
-    title: "Home",
+    title: "home",
     className: "",
   },
   {
@@ -37,15 +38,12 @@ const Navbar = () => {
   const minSwipeDistance = 50;
 
   const [current, setCurrent] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  const getWindowSize = () => {
-    setIsMobile(window.innerWidth < 640);
-  };
+  const isMobile = useWindowSize();
 
   useEffect(() => {
-    getWindowSize();
-  }, []);
+    router.push(`${NavLinks[current].href}`);
+  }, [current, router]);
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
@@ -63,7 +61,6 @@ const Navbar = () => {
 
     if (isLeftSwipe) {
       setCurrent((prev) => (prev < 3 ? prev + 1 : prev));
-      router.push(`${NavLinks[current + 1].href}`);
     }
     if (isRightSwipe) {
       setCurrent((prev) => (prev > 0 ? prev - 1 : prev));
@@ -73,29 +70,32 @@ const Navbar = () => {
   return (
     <>
       {isMobile ? (
-        <div className="flex pb-2 mb-4 border-b-[1px] border-b-[#2B2C30] justify-evenly">
-          <div
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
-            {NavLinks[current].title}
-          </div>
+        <div
+          className="flex pb-2 mb-4 border-b-[1px] border-b-[#2B2C30] justify-evenly"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div>{current !== 0 && "<"}</div>
+          <div>{NavLinks[current].title}</div>
+          <div>{current !== 3 && ">"}</div>
         </div>
       ) : (
         <div className="flex gap-5 pb-2 mb-4 border-b-[1px] border-b-[#2B2C30]">
           {NavLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`hover:text-[#2B2C30] ${
-                  isActive ? "text-[#2B2C30]" : "text-gray-400"
-                }`}
-              >
-                {link.title}
-              </Link>
+              link.href !== "/" && (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`hover:text-[#2B2C30] ${
+                    isActive ? "text-[#2B2C30]" : "text-gray-400"
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              )
             );
           })}
         </div>
