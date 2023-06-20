@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { getWindowSize } from "@/utils/getWindowSize";
 
 const NavLinks = [
   {
@@ -31,7 +30,7 @@ const NavLinks = [
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const isMobile = getWindowSize();
+  const isMobile = window.innerWidth < 640;
 
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
