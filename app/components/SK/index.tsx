@@ -31,26 +31,25 @@ const SK = () => {
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientY);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) =>
-    setTouchEnd(e.targetTouches[0].clientY);
+    setTouchEnd(e.targetTouches[0].clientX);
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    const isDownSwipe = distance > minSwipeDistance;
-    const isUpSwipe = distance < -minSwipeDistance;
-    const newWheel = wheel + distance / 5;
-    console.log(wheel, distance);
-    if (isDownSwipe) {
-      console.log(wheel);
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setWheel(wheel + 100 > 300 ? 300 : wheel + 100);
     }
-    if (isUpSwipe) {
-      console.log(wheel);
+    if (isRightSwipe) {
+      setWheel(wheel - 100 < 0 ? 0 : wheel - 100);
     }
-    setWheel(newWheel < 0 ? 0 : newWheel > 350 ? 350 : newWheel);
+    console.log(wheel);
   };
 
   useEffect(() => {}, [wheel]);
