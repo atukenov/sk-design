@@ -8,37 +8,7 @@
 
 .sk-font-s {
   font-family: "Playfair Display", serif;
-  font-size: 70vw;
-  position: absolute;
-  right: 250px;
-  bottom: -650px;
 }
 .sk-font-k {
   font-family: "Playfair Display", serif;
-  font-size: 35vw;
-  position: absolute;
-  right: -100px;
-  bottom: -350px;
-}
-
-/* smartphones, iPhone, portrait 480x320 phones */
-@media (max-width: 641px) {
-  .sk-font-s {
-    font-size: 500px;
-    top: unset;
-    bottom: -250px;
-    right: 70px;
-  }
-  .sk-font-k {
-    font-size: 200px;
-    bottom: -100px;
-    top: unset;
-    right: -30px;
-  }
-}
-/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-@media (min-width: 641px) {
-}
-/* big landscape tablets, laptops, and desktops */
-@media (min-width: 1025px) {
 }
