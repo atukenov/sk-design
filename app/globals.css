@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
 html {
   height: 100%;
@@ -12,4 +13,9 @@ body {
   color: #2b2c30;
   background: #fdf7f0;
   height: 100%;
+  font-family: "Playfair Display", serif;
+}
+
+p {
+  font-family: "Cormorant Garamond", serif;
 }
