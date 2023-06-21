@@ -67,6 +67,12 @@ const Navbar = () => {
     }
   };
 
+  const handleArrow = (move: number) => {
+    console.log(current + move);
+    if (current + move >= 0 && current + move <= 3)
+      setCurrent((prev) => prev + move);
+  };
+
   return (
     <>
       {isMobile ? (
@@ -76,9 +82,9 @@ const Navbar = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <div>{current !== 0 && "<"}</div>
+          <div onClick={() => handleArrow(-1)}>{current !== 0 && "◀"}</div>
           <div>{NavLinks[current].title}</div>
-          <div>{current !== 3 && ">"}</div>
+          <div onClick={() => handleArrow(1)}>{current !== 3 && "▶"}</div>
         </div>
       ) : (
         <div className="flex gap-5 pb-2 border-b-[1px] border-b-[#2B2C30]">
