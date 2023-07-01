@@ -1,14 +1,14 @@
 .sk-font {
   position: relative;
   color: #2b2c30;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
 .sk-font-s {
   font-family: "Playfair Display", serif;
+  font-size: 300px;
 }
 .sk-font-k {
   font-family: "Playfair Display", serif;
+  font-size: 300px;
 }

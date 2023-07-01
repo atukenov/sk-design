@@ -8,22 +8,22 @@ import { useWindowSize } from "@/utils/useWindowSize";
 const NavLinks = [
   {
     href: "/",
-    title: "home",
+    title: "HOME",
     className: "",
   },
   {
     href: "/about",
-    title: "about me",
+    title: "ABOUT ME",
     className: "",
   },
   {
     href: "/experience",
-    title: "work experience",
+    title: "WORK EXPERIENCE",
     className: "",
   },
   {
     href: "/portfolio",
-    title: "portfolio",
+    title: "PORTFOLIO",
     className: "",
   },
 ];
@@ -74,8 +74,33 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      {isMobile ? (
+    <div className="flex flex-col gap-1 items-center">
+      {NavLinks.map((link) => {
+        const isActive = pathname.startsWith(link.href);
+        return (
+          link.href !== "/" && (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[12px] font-bold"
+            >
+              {link.title}
+            </Link>
+          )
+        );
+      })}
+    </div>
+  );
+};
+
+export default Navbar;
+
+// className={`hover:text-[#2B2C30] ${
+//   isActive ? "text-[#2B2C30]" : "text-gray-400"
+// }`}
+
+{
+  /* {isMobile ? (
         <div
           className="flex pb-2 border-b-[1px] border-b-[#2B2C30] justify-evenly"
           onTouchStart={onTouchStart}
@@ -86,28 +111,5 @@ const Navbar = () => {
           <div>{NavLinks[current].title}</div>
           <div onClick={() => handleArrow(1)}>{current !== 3 && "▶"}</div>
         </div>
-      ) : (
-        <div className="flex gap-5 pb-2 border-b-[1px] border-b-[#2B2C30]">
-          {NavLinks.map((link) => {
-            const isActive = pathname.startsWith(link.href);
-            return (
-              link.href !== "/" && (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`hover:text-[#2B2C30] ${
-                    isActive ? "text-[#2B2C30]" : "text-gray-400"
-                  }`}
-                >
-                  {link.title}
-                </Link>
-              )
-            );
-          })}
-        </div>
-      )}
-    </>
-  );
-};
-
-export default Navbar;
+      ) : ( */
+}
