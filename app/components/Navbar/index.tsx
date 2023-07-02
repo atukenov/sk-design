@@ -5,6 +5,10 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useWindowSize } from "@/utils/useWindowSize";
 
+interface Props {
+  home?: boolean;
+}
+
 const NavLinks = [
   {
     href: "/",
@@ -28,7 +32,7 @@ const NavLinks = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ home }: Props) => {
   const pathname = usePathname();
 
   const router = useRouter();
@@ -37,13 +41,19 @@ const Navbar = () => {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
 
-  const [current, setCurrent] = useState<number>(0);
+  const [current, setCurrent] = useState<number>(
+    NavLinks.findIndex((t) => t.href === pathname)
+  );
 
   const isMobile = useWindowSize();
 
   useEffect(() => {
     router.push(`${NavLinks[current].href}`);
   }, [current, router]);
+
+  useEffect(() => {
+    setCurrent(NavLinks.findIndex((t) => t.href === pathname));
+  }, [pathname]);
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
@@ -74,22 +84,40 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex flex-col gap-1 items-center">
-      {NavLinks.map((link) => {
-        const isActive = pathname.startsWith(link.href);
-        return (
-          link.href !== "/" && (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[12px] font-bold"
-            >
-              {link.title}
-            </Link>
-          )
-        );
-      })}
-    </div>
+    <>
+      {home && (
+        <div className="flex flex-col gap-1 items-center">
+          {NavLinks.map((link) => {
+            const isActive = pathname.startsWith(link.href);
+            return (
+              link.href !== "/" && (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[12px] font-bold"
+                >
+                  {link.title}
+                </Link>
+              )
+            );
+          })}
+        </div>
+      )}
+      {pathname !== NavLinks[0].href && (
+        <>
+          <div
+            className="flex pb-2 justify-evenly"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div onClick={() => handleArrow(-1)}>{current !== 0 && "◀"}</div>
+            <div>{NavLinks[current].title}</div>
+            <div onClick={() => handleArrow(1)}>{current !== 3 && "▶"}</div>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

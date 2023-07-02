@@ -4,7 +4,6 @@ import React from "react";
 const About = () => {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-md">ABOUT ME</h1>
       <div className="w-full h-full pt-3">
         <div className="bg-white rounded-t-2xl px-5 py-1">
           <div className="flex justify-between items-center">

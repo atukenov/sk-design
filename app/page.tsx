@@ -12,7 +12,7 @@ export default function Home() {
             Kadirova
           </h1>
         </div>
-        <Navbar />
+        <Navbar home={true} />
         <SK />
       </div>
     </main>
