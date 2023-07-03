@@ -30,7 +30,7 @@ const experience = [
 
 const Experience = () => {
   return (
-    <div className="flex flex-col gap-5 mt-5">
+    <div className="flex flex-col gap-5 mt-5 h-full">
       {experience.map((ex, index) => {
         return (
           <ExperienceItem
