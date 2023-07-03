@@ -4,7 +4,7 @@ import PortfolioNavbar from "../components/PortfolioNavbar";
 const Portfolio = () => {
   return (
     <>
-      <PortfolioNavbar />
+      {/* <PortfolioNavbar /> */}
       <div>
         <div>title</div>
         <div>descriptions</div>
