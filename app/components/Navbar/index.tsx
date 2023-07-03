@@ -41,9 +41,7 @@ const Navbar = ({ home }: Props) => {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
 
-  const [current, setCurrent] = useState<number>(
-    NavLinks.findIndex((t) => t.href === pathname)
-  );
+  const [current, setCurrent] = useState<number>(0);
 
   const isMobile = useWindowSize();
 
@@ -52,7 +50,11 @@ const Navbar = ({ home }: Props) => {
   }, [current, router]);
 
   useEffect(() => {
-    setCurrent(NavLinks.findIndex((t) => t.href === pathname));
+    console.log(
+      pathname,
+      NavLinks.findIndex((t) => pathname === t.href)
+    );
+    setCurrent(NavLinks.findIndex((t) => pathname === t.href));
   }, [pathname]);
 
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
