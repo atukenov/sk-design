@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useWindowSize } from "@/utils/useWindowSize";
+import path from "path";
 
 interface Props {
   home?: boolean;
@@ -91,20 +92,6 @@ const PortfolioNavbar = ({ home }: Props) => {
             );
           })}
         </div>
-      )}
-      {pathname !== NavLinks[0].href && (
-        <>
-          <div
-            className="flex pb-2 justify-evenly"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
-            <div onClick={() => handleArrow(-1)}>{current !== 0 && "◀"}</div>
-            <div>{NavLinks[current].title}</div>
-            <div onClick={() => handleArrow(1)}>{current !== 2 && "▶"}</div>
-          </div>
-        </>
       )}
     </>
   );
