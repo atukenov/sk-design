@@ -5,6 +5,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
+@font-face {
+  font-family: "Halimun";
+  src: url("../public/fonts/Halimun.ttf");
+}
+
+@font-face {
+  font-family: "TheSeasons";
+  src: url("../public/fonts/TheSeasons.otf");
+}
+
 html {
   height: 100%;
 }
@@ -12,9 +22,9 @@ html {
 body {
   color: #2b2c30;
   background: linear-gradient(
-    85deg,
-    rgba(255, 255, 255, 1) 36%,
-    rgba(217, 217, 217, 1) 60%
+    45deg,
+    rgba(255, 255, 255, 1) 15%,
+    rgba(217, 217, 217, 1) 65%
   );
 
   height: 100%;
@@ -23,4 +33,12 @@ body {
 
 p {
   font-family: "Cormorant Garamond", serif;
+}
+
+.halimun {
+  font-family: "Halimun";
+}
+
+.theseasons {
+  font-family: "TheSeasons";
 }

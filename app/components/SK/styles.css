@@ -1,14 +1,18 @@
 .sk-font {
   position: relative;
-  color: #2b2c30;
-  overflow: hidden;
+  color: #c6c5c5;
+  height: 100%;
+  width: 100%;
 }
 
 .sk-font-s {
-  font-family: "Playfair Display", serif;
-  font-size: 300px;
+  font-family: "TheSeasons";
+  font-size: 500px;
 }
 .sk-font-k {
-  font-family: "Playfair Display", serif;
-  font-size: 300px;
+  font-family: "TheSeasons";
+  font-size: 250px;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
 }
