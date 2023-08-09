@@ -37,7 +37,10 @@ const InteriorsContent = () => {
             <p>{item.project}</p>
             <p>{item.desc}</p>
             <p>{item.theme}</p>
-            <Image src={item.src} alt="image" width={200} height={200} />
+            {item.src && (
+              <Image src={item.src} alt="image" width={200} height={200} />
+            )}
+            <hr className="my-3" />
           </div>
         );
       })}
