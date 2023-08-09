@@ -52,10 +52,6 @@ const Navbar = ({ home }: Props) => {
   }, [current, router]);
 
   useEffect(() => {
-    console.log(
-      pathname,
-      NavLinks.findIndex((t) => pathname === t.href)
-    );
     setCurrent(NavLinks.findIndex((t) => pathname === t.href));
   }, [pathname]);
 
@@ -90,7 +86,7 @@ const Navbar = ({ home }: Props) => {
   return (
     <>
       {home && (
-        <div className="flex flex-col gap-1 items-center">
+        <div className="flex flex-col gap-1 items-center z-10">
           {NavLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
