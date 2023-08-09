@@ -1,7 +1,22 @@
+"use client";
+import {
+  faBookmark,
+  faComment,
+  faHeart,
+  faPaperPlane,
+} from "@fortawesome/free-regular-svg-icons";
+import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const About = () => {
+  const [like, setLike] = useState(false);
+
+  const handleLike = () => {
+    setLike((prev) => (prev = !prev));
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-full h-full pt-3">
@@ -26,11 +41,26 @@ const About = () => {
         <div className="bg-white rounded-b-2xl px-5 py-2">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
-              <div>like</div>
-              <div>comm</div>
-              <div>repo</div>
+              <div onClick={handleLike}>
+                {!like ? (
+                  <FontAwesomeIcon icon={faHeart} />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faSolidHeart}
+                    style={{ color: "#ff0000" }}
+                  />
+                )}
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faComment} />
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faPaperPlane} />
+              </div>
             </div>
-            <div>save</div>
+            <div>
+              <FontAwesomeIcon icon={faBookmark} />
+            </div>
           </div>
         </div>
       </div>
