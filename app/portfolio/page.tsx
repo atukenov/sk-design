@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Logo from "../components/LogoContent";
 import UI from "../components/UIContent";
 import Interiors from "../components/InteriorsContent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan, faLessThan } from "@fortawesome/free-solid-svg-icons";
 
 const NavLinks = [
   {
@@ -72,9 +74,13 @@ const Portfolio = () => {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        <div onClick={() => handleArrow(-1)}>{current !== 0 && "◀"}</div>
+        <div onClick={() => handleArrow(-1)}>
+          {current !== 0 && <FontAwesomeIcon icon={faLessThan} />}
+        </div>
         <div>{NavLinks[current].title}</div>
-        <div onClick={() => handleArrow(1)}>{current !== 2 && "▶"}</div>
+        <div onClick={() => handleArrow(1)}>
+          {current !== 2 && <FontAwesomeIcon icon={faGreaterThan} />}
+        </div>
       </div>
       {NavLinks[current].content}
     </>
