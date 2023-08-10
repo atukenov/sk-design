@@ -19,8 +19,8 @@ const About = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-full h-full pt-3">
-        <div className="bg-white rounded-t-2xl px-5 py-1">
+      <div className="h-full pt-3">
+        <div className="bg-white rounded-t-2xl px-5 py-1 md:w-[500px]">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
               <div className="w-[30px] h-[30px] overflow-hidden">
@@ -38,7 +38,7 @@ const About = () => {
           </div>
         </div>
         <Image src="/img/about.jpg" alt="me" width={500} height={400} />
-        <div className="bg-white rounded-b-2xl px-5 py-2">
+        <div className="bg-white rounded-b-2xl px-5 py-2 md:w-[500px]">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center">
               <div onClick={handleLike}>

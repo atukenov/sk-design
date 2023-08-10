@@ -4,7 +4,7 @@ import "./styles.css";
 
 const SK = () => {
   return (
-    <div className="sk-font relative mt-3">
+    <div className="sk-font w-full relative mt-3 md:w-2/5">
       <div className="sk-font-s">S</div>
       <div className="sk-font-k">K</div>
     </div>

@@ -12,7 +12,7 @@ const experience = [
     title: "Комплектатор проектов",
     field: "Студия дизайна интерьера",
     desc: "Комплектация объекта чистовой отделкой, мебелью, соблюдение сроков",
-    logo: "VV",
+    logo: "vv",
   },
   {
     title: "Проектный менеджер",
@@ -30,7 +30,7 @@ const experience = [
 
 const Experience = () => {
   return (
-    <div className="flex flex-col gap-5 mt-5 h-full">
+    <div className="flex flex-col gap-5 mt-5 h-full md:w-1/2 md:items-center">
       {experience.map((ex, index) => {
         return (
           <ExperienceItem
