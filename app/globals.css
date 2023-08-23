@@ -15,21 +15,15 @@
   src: url("../public/fonts/TheSeasons.otf");
 }
 
-html {
-  height: 100%;
-}
-
 body {
   color: #2b2c30;
-  background: rgb(255, 255, 255);
   background: linear-gradient(
     45deg,
     rgba(255, 255, 255, 1) 64%,
     rgba(217, 217, 217, 1) 85%
   );
-
-  height: 100%;
   font-family: "Playfair Display", serif;
+  min-height: 100vh;
 }
 
 p {

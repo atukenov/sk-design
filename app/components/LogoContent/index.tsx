@@ -6,21 +6,21 @@ const LogoItems = [
     project: 'Проект "Lime Kinoroom"',
     desc: "Комната кино",
     theme: "",
-    src: "/img/logo/limeKinoroom.mp4",
+    src: "limeKinoroom.mp4",
     type: "video",
   },
   {
     project: 'Проект "Line Z"',
     desc: "Логотип для собственного сайта ",
     theme: "",
-    src: "/img/logo/linez.png",
+    src: "linez.png",
     type: "img",
   },
   {
     project: 'Проект "Simply"',
     desc: "Логотип для карты Simply от Beeline",
     theme: "Тема: цитаты известных личностей Казахстана",
-    src: "/img/logo/simply.jpg",
+    src: "simply.jpg",
     type: "img",
   },
 ];
@@ -36,11 +36,16 @@ const LogoContent = () => {
             <p>{item.theme}</p>
             {item.type === "video" ? (
               <video controls width="600" height="400" autoPlay>
-                <source src={item.src} type="video/mp4" />
+                <source src={`/img/logo/${item.src}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (
-              <Image src={item.src} alt="image" width={200} height={200} />
+              <Image
+                src={`/img/logo/${item.src}`}
+                alt="image"
+                width={400}
+                height={400}
+              />
             )}
             <hr className="my-3" />
           </div>
